@@ -2,7 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const ObjectId = require("mongodb").ObjectID;
 const userRoutes = express.Router();
-const userController = require("../src/controllers/users.js");
+const userController = require("../controllers/users");
 
 userRoutes.get("/", userController.index);
 

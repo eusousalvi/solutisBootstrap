@@ -1,17 +1,18 @@
 <%- contentFor('body') %>
+<div class="container">
   <h2>Lista de Professores</h2>
-  <table border="1">
-    <thead>
+  <table class="table table-hover table-sm table-responsive" border="1">
+    <thead class="thead-dark">
       <tr>
-        <td>Nome</td>
-        <td>Sobrenome</td>
-        <td>Ação</td>
+        <th scope="col">Nome</td>
+        <th scope="col">Sobrenome</td>
+        <th scope="col">Ação</td>
       </tr>
     </thead>
     <tbody>
       <% data.forEach(function(details) { %>
         <tr>
-          <td>
+          <td scope="row">
             <%= details.name %>
           </td>
           <td>
@@ -29,3 +30,4 @@
     </tbody>
   </table>
   <button><a href="/teacher/add">Novo</a></button>
+</div>

@@ -32,10 +32,12 @@ module.exports = {
 
     global.db
       .collection(process.env.DB_TEACHER_SCHEMA)
-      .find(ObjectId(id))
-      .toArray((err, results) => {
-        if (err) return console.log(err);
-        response.render("./teacher/showById.ejs", { data: results[0] });
+      .findOne(ObjectId(id))
+      .then((results) => {
+        response.render("./teacher/showById.ejs", { data: results });
+      })
+      .catch((e)=>{
+        console.log(e)
       });
   },
 
@@ -44,10 +46,12 @@ module.exports = {
 
     global.db
       .collection(process.env.DB_TEACHER_SCHEMA)
-      .find(ObjectId(id))
-      .toArray((err, result) => {
-        if (err) return res.send(err);
-        response.render("./teacher/edit.ejs", { data: result });
+      .findOne(ObjectId(id))
+      .then((results) => {
+        response.render("./teacher/edit.ejs", { data: results });
+      })
+      .catch((e)=>{
+        console.log(e)
       });
   },
 

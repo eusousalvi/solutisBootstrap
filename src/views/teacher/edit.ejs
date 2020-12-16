@@ -1,11 +1,9 @@
 <%- contentFor('body') %>
-  <h2>Editar Registro de Professor</h2>
-  <% data.forEach(function(details) { %>
-    <form action="/teacher/edit/<%= details._id %>" method="POST">
-      <input type="text" value="<%= details.name %>" name="name">
-      <input type="text" value="<%= details.surname %>" name="surname">
+  <h2>Editar Registro do Professor <% data.name + " " + data.surname %></h2>
+    <form action="/teacher/edit/<%= data._id %>" method="POST">
+      <input type="text" value="<%= data.name %>" name="name">
+      <input type="text" value="<%= data.surname %>" name="surname">
       <br />
       <button><a href="/teacher/show">Todos</a></button>
       <button type="submit">Editar</button>
     </form>
-    <% }) %>

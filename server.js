@@ -3,6 +3,8 @@ require("dotenv").config();
 const MongoClient = require("mongodb").MongoClient;
 const expressLayouts = require("express-ejs-layouts");
 const userRoutes = require("./src/routes/user");
+const teacherRoutes = require("./src/routes/teacher");
+
 
 const uri = `mongodb+srv://${process.env.DB_LOGIN}:${process.env.DB_PASS}@clustersolutiscourse.vamb7.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
@@ -12,6 +14,8 @@ app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.use(express.urlencoded({ extended: true }));
 app.use(userRoutes);
+app.use(teacherRoutes);
+
 
 MongoClient.connect(
   process.env.DB_CONNECTION,

@@ -3,6 +3,7 @@ require("dotenv").config();
 const MongoClient = require("mongodb").MongoClient;
 const expressLayouts = require("express-ejs-layouts");
 const userRoutes = require("./src/routes/user");
+const employeeRoutes = require("./src/routes/employee");
 const teacherRoutes = require("./src/routes/teacher");
 const studentRoutes = require("./src/routes/student");
 
@@ -16,6 +17,7 @@ app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.use(express.urlencoded({ extended: true }));
 app.use(userRoutes);
+app.use(employeeRoutes);
 app.use(teacherRoutes);
 app.use(studentRoutes);
 

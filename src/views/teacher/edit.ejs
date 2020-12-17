@@ -1,33 +1,59 @@
 <%- contentFor('body') %>
 <div class="container">
   <h2>Editar Registro do Professor <% data.name + " " + data.surname %></h2>
-    <form action="/teacher/edit/<%= data._id %>" method="POST">
+  <form action="/teacher/edit/<%= data._id %>" method="POST">
+    <div class="form-group">
+      <label for="form-name">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="form-name"
+        required="required"
+        value="<%= data.name %>"
+        name="name"
+      />
+    </div>
 
-      <div class="form-group">
-        <label for="form-name">Nome</label>
-        <input type="text" class="form-control" id="form-name"
-          required="required" value="<%= data.name %>" name="name">
-      </div>
+    <div class="form-group">
+      <label for="form-surname">Sobrenome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="form-surname"
+        required="required"
+        value="<%= data.surname %>"
+        name="surname"
+      />
+    </div>
 
-      <div class="form-group">
-        <label for="form-surname">Sobrenome</label>
-        <input type="text" class="form-control" id="form-surname"
-          required="required"  value="<%= data.surname %>" name="surname">
-      </div>
+    <div class="form-group">
+      <label for="form-education">Escolaridade</label>
+      <input
+        type="text"
+        class="form-control"
+        id="form-education"
+        required="required"
+        value="<%= data.education %>"
+        name="education"
+      />
+    </div>
 
-      <div class="form-group">
-        <label for="form-education">Escolaridade</label>
-        <input type="text" class="form-control" id="form-education"
-         required="required" value="<%= data.education %>" name="education">
-      </div>
-      
-      <div class="form-group">
-        <label for="form-salary">Salário</label>
-        <input type="number" step="0.01" class="form-control"
-          required="required" id="form-salary" value="<%= data.salary %>" name="salary">
-      </div>
+    <div class="form-group">
+      <label for="form-salary">Salário</label>
+      <input
+        type="number"
+        step="0.01"
+        class="form-control"
+        required="required"
+        id="form-salary"
+        value="<%= data.salary %>"
+        name="salary"
+      />
+    </div>
 
-      <a type="submit"><button class="btn btn-primary">Salvar</button></a>
-      <a href="/teacher/show/"><button class="btn btn-secondary">Voltar</button></a>
-    </form>
+    <a type="submit"><button class="btn btn-primary">Salvar</button></a>
+    <a href="/teacher/show/"
+      ><button class="btn btn-secondary">Voltar</button></a
+    >
+  </form>
 </div>

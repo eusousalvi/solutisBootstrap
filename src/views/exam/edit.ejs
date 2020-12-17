@@ -1,0 +1,32 @@
+<%- contentFor('body') %>
+  <section class="container">
+    <h2>Editar Registro de Provas</h2>
+    <form action="/exam/edit/<%= data._id %>" method="POST">
+      <div class="form-group">
+        <label for="title">Título</label>
+        <input type="text" required class="form-control" value="<%= data.title %>" name="title">
+      </div>
+      <h3>Questões</h3>
+      <div class="form-group" id="editQuestions">
+        <% data.questions.forEach(function(question, index) { %>
+          <div class="form-group row" id="question<%= index %>">
+            <label class="col-sm-1 col-form-label" for="<%= index %>">
+              <%= index + 1 %>
+            </label>
+            <input id="<%= index %>" type="text" value="<%= question %>" name="questions" class="form-control col-sm-10">
+            <button type="button" onclick="removeQuestion('<%= index %>')" class="col-sm-1 btn btn-danger">Apagar</button>
+          </div>
+          <% }) %>
+      </div>
+      <br />
+      <a href="/exam/show"><button class="btn btn-secondary">Todos</button></a>
+      <button class="btn btn-primary" type="submit">Editar</button>
+    </form>
+  </section>
+  <script>
+    function removeQuestion(id) {
+      const editQuestions = document.getElementById('editQuestions');
+      const question = document.getElementById('question' + id);
+      editQuestions.removeChild(question);
+    }
+  </script>

@@ -1,0 +1,10 @@
+<%- contentFor('body') %>
+<h2>Registrar Funcionário</h2>
+<form action="/employee/show" method="POST">
+  <input type="text" placeholder="Nome" id="name" name="name" />
+  <input type="text" placeholder="Sobrenome" id="lastname" name="lastname" />
+  <input type="text" placeholder="Matrícula" id="matricula" name="matricula" />
+  <input type="text" placeholder="Data de nascimento" id="birthday" name="birthday"/>
+  <input type="text" placeholder="Setor" id="setor" name="setor"/>
+  <button type="submit">Submit</button>
+</form>

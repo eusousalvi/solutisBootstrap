@@ -1,0 +1,32 @@
+<%- contentFor('body') %>
+<div>
+  <h2>Lista de Funcionários</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Matricula</th>
+        <th>Data de nascimento</th>
+        <th>Setor</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(function(details) { %>
+      <tr>
+        <td><%=details.name%></td>
+        <td><%=details.lastname%></td>
+        <td><%=details.matricula%></td>
+        <td><%=details.birthday%></td>
+        <td><%=details.setor %></td>
+        <td>
+          <a href="/employee/edit/<%= details._id %> ">Editar</a> -
+          <a href="/employee/delete/<%= details._id %> ">Deletar</a>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <a href="/employee/add">Novo</a>
+</div>

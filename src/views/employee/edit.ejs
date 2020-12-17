@@ -1,0 +1,10 @@
+<%- contentFor('body') %>
+<h2>Editar Registro do Funcionário: <%= `${data.name} ${data.lastname}` %></h2>
+<form action="/employee/edit/<%= data._id %> " method="POST">
+  <input type="text" value="<%= data.name %>" id="name" name="name" />
+  <input type="text" value="<%= data.lastname %>" id="lastname" name="lastname"/>
+  <input type="text" value="<%= data.matricula %>" id="matricula" name="matricula"/>
+  <input type="text" value="<%= data.birthday %>" id="birthday" name="birthday"/>
+  <input type="text" value="<%= data.setor %>" id="setor" name="setor" />
+  <button type="submit">Submit</button>
+</form>

@@ -1,10 +1,9 @@
 <%- contentFor('body') %>
-  <h2>Registros de Usuários</h2>
+  <h2>Registro de Provas</h2>
   <table border="1">
     <thead>
       <tr>
-        <td>Nome</td>
-        <td>Sobrenome</td>
+        <td>Título</td>
         <td>Ação</td>
       </tr>
     </thead>
@@ -12,14 +11,11 @@
       <% data.forEach(function(details) { %>
         <tr>
           <td>
-            <%= details.name %>
+            <%= details.title %>
           </td>
-          <td>
-            <%= details.surname %>
-          </td>
-          <td><a href="/user/edit/<%= details._id %>">Editar</a> - <a href="/user/delete/<%= details._id %>">Deletar</a></td>
+          <td><a href="/exam/show/<%= details._id %>">Detalhes</a> - <a href="/exam/edit/<%= details._id %>">Editar</a> - <a href="/exam/delete/<%= details._id %>">Deletar</a></td>
         </tr>
         <% }) %>
     </tbody>
   </table>
-  <button><a href="/">Novo</a></button>
+  <button><a href="/exam/add">Novo</a></button>

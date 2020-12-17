@@ -1,7 +1,11 @@
 <%- contentFor('body') %>
-  <h2>Registrar Usuário<h2>
-      <form action="/user/show" method="POST">
-        <input type="text" placeholder="Nome" name="name">
-        <input type="text" placeholder="Sobrenome" name="surname">
-        <button type="submit">Submit</button>
-      </form>
+  <section>
+    <h2>Criar Prova</h2>
+    <form action="/exam/show" method="POST">
+      <input type="text" placeholder="Título da Prova" name="title">
+      <div id="questions">
+        <button id="addQuestion">Adicionar Questão</button>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </section>

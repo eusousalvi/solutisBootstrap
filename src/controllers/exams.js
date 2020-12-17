@@ -9,7 +9,7 @@ module.exports = {
   create(request, response) {
     global.db
       .collection(process.env.DB_EXAM_SCHEMA)
-      .save(request.body, (err, result) => {
+      .insertOne(request.body, (err, result) => {
         if (err) return console.log(err);
 
         console.log('Salvo no Banco de Dados');
@@ -27,22 +27,22 @@ module.exports = {
       });
   },
 
-  // showById(request, response) {
-  //   let id = request.params.id;
+  showById(request, response) {
+    const id = request.params.id;
 
-  //   global.db
-  //     .collection(process.env.DB_EXAM_SCHEMA)
-  //     .findOne(ObjectId(id))
-  //     .then((results) => {
-  //       response.render('./exam/showById.ejs', { data: results });
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // },
+    global.db
+      .collection(process.env.DB_EXAM_SCHEMA)
+      .findOne(ObjectId(id))
+      .then((results) => {
+        response.render('./exam/showById.ejs', { data: results });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  },
 
   getEdit(request, response) {
-    let id = request.params.id;
+    const id = request.params.id;
 
     global.db
       .collection(process.env.DB_EXAM_SCHEMA)
@@ -56,28 +56,26 @@ module.exports = {
   },
 
   postEdit(request, response) {
-    let id = request.params.id;
-    let name = request.body.name;
-    let surname = request.body.surname;
-    let education = request.body.education;
-    let salary = request.body.salary;
+    const id = request.params.id;
+    const title = request.body.title;
+    const questions = request.body;
 
-    global.db.collection(process.env.DB_EXAM_SCHEMA).updateOne(
-      { _id: ObjectId(id) },
-      {
-        $set: {
-          name: name,
-          surname: surname,
-          education: education,
-          salary: salary,
-        },
-      },
-      (err, result) => {
-        if (err) return response.send(err);
-        response.redirect('/exam/show');
-        console.log('Atualizado no Banco de Dados');
-      },
-    );
+    console.log(questions);
+
+    // global.db.collection(process.env.DB_EXAM_SCHEMA).updateOne(
+    //   { _id: ObjectId(id) },
+    //   {
+    //     $set: {
+    //       title,
+    //       questions,
+    //     },
+    //   },
+    //   (err, result) => {
+    //     if (err) return response.send(err);
+    //     response.redirect('/exam/show');
+    //     console.log('Atualizado no Banco de Dados');
+    //   },
+    // );
   },
 
   delete(request, response) {

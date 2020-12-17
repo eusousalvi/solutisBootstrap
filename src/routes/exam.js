@@ -7,7 +7,7 @@ examRoutes.get('/exam/add', examController.index);
 
 examRoutes.get('/exam/show', examController.show);
 
-// examRoutes.get("/exam/show/:id", examController.showById);
+examRoutes.get('/exam/show/:id', examController.showById);
 
 examRoutes.post('/exam/show', examController.create);
 

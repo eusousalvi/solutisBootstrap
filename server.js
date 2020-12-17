@@ -7,9 +7,9 @@ const teacherRoutes = require('./src/routes/teacher');
 const examRoutes = require('./src/routes/exam');
 const institutionRoutes = require('./src/routes/institution');
 const employeeRoutes = require('./src/routes/employee');
-const teacherRoutes = require('./src/routes/teacher');
 const projectsRoutes = require('./src/routes/projects');
 const studentRoutes = require('./src/routes/student');
+const subjectsRoutes = require('./src/routes/subjects')
 
 const port = 4000;
 
@@ -28,6 +28,7 @@ app.use(teacherRoutes);
 app.use(examRoutes);
 app.use(projectsRoutes);
 app.use(studentRoutes);
+app.use(subjectsRoutes);
 
 MongoClient.connect(
   process.env.DB_CONNECTION,

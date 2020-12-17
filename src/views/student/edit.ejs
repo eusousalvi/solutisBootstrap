@@ -1,14 +1,15 @@
 <%- contentFor('body') %>
 <div class="container">
-  <h2>Registrar Estudante</h2>
-  <form action="/student/show" method="POST">
+  <h2>Editar Registro do Estudante <% data.name + " " + data.surname %></h2>
+  <form action="/student/edit/<%= data._id %>" method="POST">
     <div class="form-group">
       <label for="form-name">Nome</label>
       <input
         type="text"
         class="form-control"
-        required="required"
         id="form-name"
+        required="required"
+        value="<%= data.name %>"
         name="name"
       />
     </div>
@@ -18,8 +19,9 @@
       <input
         type="text"
         class="form-control"
-        required="required"
         id="form-surname"
+        required="required"
+        value="<%= data.surname %>"
         name="surname"
       />
     </div>
@@ -27,10 +29,11 @@
     <div class="form-group">
       <label for="form-education">Idade</label>
       <input
-        type="number"
+        type="text"
         class="form-control"
-        required="required"
         id="form-education"
+        required="required"
+        value="<%= data.age %>"
         name="age"
       />
     </div>
@@ -43,11 +46,12 @@
         class="form-control"
         required="required"
         id="form-salary"
+        value="<%= data.rg %>"
         name="rg"
       />
     </div>
 
-    <a type="submit"><button class="btn btn-primary">Adicionar</button></a>
+    <a type="submit"><button class="btn btn-primary">Salvar</button></a>
     <a href="/student/show/"
       ><button class="btn btn-secondary">Voltar</button></a
     >

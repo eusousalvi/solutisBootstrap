@@ -1,0 +1,45 @@
+<%- contentFor('body') %> <% if (data.length >= 1) { %>
+<div class="container">
+  <h2>Instituições Cadastradas</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">CNPJ</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Situação</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(function(details) { %>
+      <tr>
+        <td><%= details.name %></td>
+        <td><%= details.cnpj %></td>
+        <td><%= details.telephone %></td>
+        <% if (details.situation === 'Inativo') { %>
+        <td style="color: #dc3545"><%= details.situation %></td>
+        <% } else {%>
+        <td style="color: #198754"><%= details.situation %></td>
+        <% } %>
+        <td>
+          <a href="/institution/edit/<%= details._id %>" class="btn btn-warning"
+            >Editar</a
+          >
+        </td>
+        <td>
+          <a
+            href="/institution/delete/<%= details._id %>"
+            class="btn btn-danger"
+            >Deletar</a
+          >
+        </td>
+      </tr>
+      <% }) } else { %>
+      <h3>Nenhuma instituição cadastrada</h3>
+      <% } %>
+    </tbody>
+  </table>
+  <a href="/institution" class="btn btn-primary">Voltar</a>
+</div>

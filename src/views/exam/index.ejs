@@ -1,11 +1,82 @@
 <%- contentFor('body') %>
   <section>
     <h2>Criar Prova</h2>
-    <form action="/exam/show" method="POST">
-      <input type="text" placeholder="Título da Prova" name="title">
-      <div id="questions">
-        <button id="addQuestion">Adicionar Questão</button>
+    <form id="formExam" action="/exam/show" method="POST">
+      <input required type="text" placeholder="Título da Prova" name="title">
+      <h3>Questões</h3>
+      <div id="questionsContainer">
+        <button type="button" id="addQuestion">Adicionar Questão</button>
       </div>
       <button type="submit">Submit</button>
     </form>
+    <script>
+      const addQuestion = document.getElementById('addQuestion');
+      const questionsContainer = document.getElementById('questionsContainer');
+      const formExam = document.getElementById('formExam');
+
+      function cleanStorage(key) {
+        localStorage.removeItem(key);
+      }
+
+      function saveIdOnStorage(id) {
+        try {
+          localStorage.setItem('id', id);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      function getIdFromStorage(key, initial) {
+        try {
+          const id = localStorage.getItem(key);
+          if (id) {
+            return id;
+          } else {
+            return initial;
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      function removeQuestion(id) {
+        const question = document.getElementById('question' + id);
+        questionsContainer.removeChild(question);
+      }
+
+      function createQuestion() {
+        const id = parseInt(getIdFromStorage('id', 1));
+        const apagar = document.createElement('button');
+        const container = document.createElement('div');
+        const label = document.createElement('label');
+        const question = document.createElement('input');
+        container.setAttribute('id', `question${id}`);
+        question.setAttribute('required', 'required');
+        question.setAttribute('id', id);
+        question.setAttribute('type', 'text');
+        question.setAttribute('name', 'questions');
+        apagar.setAttribute('type', 'button');
+        apagar.innerText = 'Apagar';
+        apagar.addEventListener('click', () => removeQuestion(id));
+        label.innerText = id + ' -';
+
+        container.appendChild(label);
+        container.appendChild(question);
+        container.appendChild(apagar)
+        questionsContainer.insertBefore(container, addQuestion);
+
+        saveIdOnStorage(id + 1);
+      }
+
+
+      addQuestion.addEventListener('click', (event) => {
+        event.preventDefault();
+        createQuestion();
+      });
+
+      formExam.addEventListener('submit', (event) => {
+        cleanStorage('id');
+      })
+
+    </script>
   </section>

@@ -1,11 +1,27 @@
 <%- contentFor('body') %>
   <h2>Editar Registro de Provas</h2>
-  <form action="/user/edit/<%= details._id %>" method="POST">
+  <form action="/exam/edit/<%= data._id %>" method="POST">
     <input type="text" value="<%= data.title %>" name="title">
-    <% data.questions.forEach(function(question) { %>
-      <input type="text" value="<%= question.title %>" name="question">
-      <% }) %>
-        <br />
-        <button><a href="/user/show">Todos</a></button>
-        <button type="submit">Editar</button>
+    <h3>Questões</h3>
+    <div id="editQuestions">
+      <% data.questions.forEach(function(question, index) { %>
+        <div id="question<%= index %>">
+          <label for="<%= index %>">
+            <%= index + 1 %>
+          </label>
+          <input id="<%= index %>" type="text" value="<%= question %>" name="questions">
+          <button type="button" onclick="removeQuestion('<%= index %>')">Apagar</button>
+        </div>
+        <% }) %>
+    </div>
+    <br />
+    <button><a href="/exam/show">Todos</a></button>
+    <button type="submit">Editar</button>
   </form>
+  <script>
+    function removeQuestion(id) {
+      const editQuestions = document.getElementById('editQuestions');
+      const question = document.getElementById('question' + id);
+      editQuestions.removeChild(question);
+    }
+  </script>

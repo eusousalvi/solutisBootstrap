@@ -47,8 +47,8 @@ module.exports = {
     global.db
       .collection(process.env.DB_EXAM_SCHEMA)
       .findOne(ObjectId(id))
-      .then((results) => {
-        response.render('./exam/edit.ejs', { data: results });
+      .then((data) => {
+        response.render('./exam/edit.ejs', { data });
       })
       .catch((e) => {
         console.log(e);
@@ -58,24 +58,24 @@ module.exports = {
   postEdit(request, response) {
     const id = request.params.id;
     const title = request.body.title;
-    const questions = request.body;
+    const questions = request.body.questions;
 
     console.log(questions);
 
-    // global.db.collection(process.env.DB_EXAM_SCHEMA).updateOne(
-    //   { _id: ObjectId(id) },
-    //   {
-    //     $set: {
-    //       title,
-    //       questions,
-    //     },
-    //   },
-    //   (err, result) => {
-    //     if (err) return response.send(err);
-    //     response.redirect('/exam/show');
-    //     console.log('Atualizado no Banco de Dados');
-    //   },
-    // );
+    global.db.collection(process.env.DB_EXAM_SCHEMA).updateOne(
+      { _id: ObjectId(id) },
+      {
+        $set: {
+          title,
+          questions,
+        },
+      },
+      (err, result) => {
+        if (err) return response.send(err);
+        response.redirect('/exam/show');
+        console.log('Atualizado no Banco de Dados');
+      },
+    );
   },
 
   delete(request, response) {

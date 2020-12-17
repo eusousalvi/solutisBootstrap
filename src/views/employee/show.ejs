@@ -1,32 +1,33 @@
 <%- contentFor('body') %>
-<div>
+<div class="container">
   <h2>Lista de Funcionários</h2>
-  <table border="1">
-    <thead>
+  <table class="table table-hover table-sm" border="1">
+    <thead class="thead-dark">
       <tr>
-        <th>Nome</th>
-        <th>Sobrenome</th>
-        <th>Matricula</th>
-        <th>Data de nascimento</th>
-        <th>Setor</th>
-        <th>Ação</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobrenome</th>
+        <th scope="col">Matricula</th>
+        <th scope="col">Setor</th>
+        <th scope="col">Ação</th>
       </tr>
     </thead>
     <tbody>
       <% data.forEach(function(details) { %>
-      <tr>
+      <tr scope="row">
         <td><%=details.name%></td>
         <td><%=details.lastname%></td>
         <td><%=details.matricula%></td>
-        <td><%=details.birthday%></td>
         <td><%=details.setor %></td>
         <td>
-          <a href="/employee/edit/<%= details._id %> ">Editar</a> -
-          <a href="/employee/delete/<%= details._id %> ">Deletar</a>
+          <a class="btn btn-info" href="/employee/show/<%= details._id %>">Detalhes</a>
+          -
+          <a class="btn btn-warning" href="/employee/edit/<%= details._id %> ">Editar</a> 
+          -
+          <a class="btn btn-danger" href="/employee/delete/<%= details._id %> ">Deletar</a>
         </td>
       </tr>
       <% }) %>
     </tbody>
   </table>
-  <a href="/employee/add">Novo</a>
+  <a class="btn btn-primary" href="/employee/add">Novo</a>
 </div>

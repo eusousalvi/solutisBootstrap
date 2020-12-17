@@ -59,6 +59,8 @@ module.exports = {
     let id = request.params.id;
     let name = request.body.name;
     let surname = request.body.surname;
+    let education = request.body.education;
+    let salary = request.body.salary;
 
     global.db.collection(process.env.DB_TEACHER_SCHEMA).updateOne(
       { _id: ObjectId(id) },
@@ -66,6 +68,8 @@ module.exports = {
         $set: {
           name: name,
           surname: surname,
+          education: education,
+          salary: salary,
         },
       },
       (err, result) => {

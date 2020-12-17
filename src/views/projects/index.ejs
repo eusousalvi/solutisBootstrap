@@ -1,0 +1,29 @@
+<%- contentFor('body') %>
+<div class="container">
+  <h2>Registrar Professor</h2>
+    <form action="/projects/show" method="POST">
+
+      <div class="form-group">
+        <label for="form-title">Título</label>
+        <input type="text" class="form-control"
+          required="required" id="form-title" name="title" placeholder="Adicione o título do deu projeto">
+      </div>
+
+      <div class="form-group">
+        <label for="form-description">Descrição</label>
+        <textarea type="text" class="form-control"
+          required="required" id="form-description" name="description" rows="4" placeholder="Adicione a descrição do deu projeto">
+          </textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="form-banner">Banner</label>
+        <input type="text" class="form-control"
+          required="required" id="form-banner" name="banner" placeholder="Adicione a URL do seu Banner">
+      </div>
+
+      
+      <a type="submit"><button class="btn btn-primary">Criar</button></a>
+      <a href="/projects/show/"><button class="btn btn-secondary">Voltar</button></a>
+    </form>
+</div>

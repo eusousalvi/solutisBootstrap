@@ -1,0 +1,55 @@
+<%- contentFor('body') %>
+<div class="container">
+  <h2>Registrar Professor</h2>
+  <form action="/teacher/show" method="POST">
+    <div class="form-group">
+      <label for="form-name">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        required="required"
+        id="form-name"
+        name="name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="form-surname">Sobrenome</label>
+      <input
+        type="text"
+        class="form-control"
+        required="required"
+        id="form-surname"
+        name="surname"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="form-education">Escolaridade</label>
+      <input
+        type="text"
+        class="form-control"
+        required="required"
+        id="form-education"
+        name="education"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="form-salary">Salário</label>
+      <input
+        type="number"
+        step="0.01"
+        class="form-control"
+        required="required"
+        id="form-salary"
+        name="salary"
+      />
+    </div>
+
+    <a type="submit"><button class="btn btn-primary">Adicionar</button></a>
+    <a href="/teacher/show/"
+      ><button class="btn btn-secondary">Voltar</button></a
+    >
+  </form>
+</div>

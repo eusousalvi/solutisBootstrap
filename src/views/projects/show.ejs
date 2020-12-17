@@ -1,0 +1,25 @@
+<%- contentFor('body') %>
+<div class="container">
+  <h2>Lista de Projetos</h2>
+  <a href="/projects/add"><button class="btn btn-primary">Novo</button></a>
+
+  <div class="container">
+    <div class="row">
+    <% data.forEach(function(details) { %>
+    <div class="col-md-4 py-3">
+      <div class="card " style="width: 18rem;">
+        <img src="<%= details.banner %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%=details.title%></h5>
+          <p class="card-text" style="white-space: nowrap; max-width: 25ch; overflow: hidden; text-overflow: ellipsis"><%= details.description %>...</p>
+          <a href="/projects/show/<%= details._id %>"><button class="btn btn-success">Detalhes</button></a>
+          <a href="/projects/edit/<%= details._id %>"><button class="btn btn-primary">Editar</button></a>
+          <a href="/projects/delete/<%= details._id %>"><button class="btn btn-danger">Deletar</button></a>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  </div>
+ 
+</div>

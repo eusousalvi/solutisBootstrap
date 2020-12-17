@@ -1,0 +1,31 @@
+<%- contentFor('body') %>
+<div class="container">
+  <h2>Editar Registro do Projeto <% data.title%></h2>
+    <form action="/projects/edit/<%= data._id %>" method="POST">
+
+      <div class="form-group">
+        <label for="form-name">Título</label>
+        <input type="text" class="form-control" id="form-title"
+          required="required" value="<%= data.title %>" name="title">
+      </div>
+
+      <div class="form-group">
+        <label for="form-description">Descrição</label>
+        <textArea rows="4" class="form-control" id="form-description"
+          required="required" name="description">
+          <%= data.title %>
+        </textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="form-banner">Banner</label>
+        <input type="text" class="form-control" id="form-banner"
+         required="required" value="<%= data.banner %>" name="banner">
+      </div>
+      
+      
+
+      <a type="submit"><button class="btn btn-primary">Salvar</button></a>
+      <a href="/projects/show/"><button class="btn btn-secondary">Voltar</button></a>
+    </form>
+</div>

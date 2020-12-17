@@ -8,6 +8,8 @@ employee.get("/employee/add", employeeController.index);
 
 employee.get("/employee/show", employeeController.show);
 
+employee.get("/employee/show/:id", employeeController.showById);
+
 employee.post("/employee/show", employeeController.create);
 
 employee.get("/employee/edit/:id", employeeController.getEdit);

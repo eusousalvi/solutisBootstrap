@@ -27,6 +27,17 @@ module.exports = {
       });
   },
 
+  showById(request, response) {
+    const { id } = request.params;
+    global.db
+      .collection(process.env.DB_EMPLOYEE_SCHEMA)
+      .findOne(ObjectId(id))
+      .then((result) =>
+        response.render("./employee/showById.ejs", { data: result })
+      )
+      .catch((err) => console.log(err));
+  },
+
   getEdit(request, response) {
     const { id } = request.params;
 
@@ -41,7 +52,8 @@ module.exports = {
 
   postEdit(request, response) {
     const { id } = request.params;
-    const { name, lastname, matricula, birthday, setor } = request.body;
+    const { name, lastname, matricula } = request.body;
+    const { birthday, setor, salario } = request.body;
 
     global.db.collection(process.env.DB_EMPLOYEE_SCHEMA).updateOne(
       { _id: ObjectId(id) },
@@ -52,6 +64,7 @@ module.exports = {
           matricula,
           birthday,
           setor,
+          salario,
         },
       },
       (err, result) => {

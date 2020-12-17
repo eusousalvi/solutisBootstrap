@@ -1,0 +1,24 @@
+<%- contentFor('body') %>
+<div class="container">
+
+  <div class="card mb-3" >
+    <h5 class="card-header"><%= data.title %></h5>
+      <img src="<%= data.banner %>" class="card-img-top" alt="image_banner" >
+
+
+    <div class="card-body">
+      <h5 class="card-title"><%=data.title%></h5>
+      <p class="card-text"><%= data.description %></p>
+      
+    </div>
+
+    <div class="card-footer text-muted">
+      <a href="/projects/edit/<%= data._id %>"><button class="btn btn-primary">Editar</button></a>
+      <a href="/projects/delete/<%= data._id %>"><button class="btn btn-danger">Deletar</button></a>
+
+    </div>
+  </div>
+  
+
+  <a href="/projects/show/"><button class="btn btn-secondary">Voltar</button></a>
+</div>

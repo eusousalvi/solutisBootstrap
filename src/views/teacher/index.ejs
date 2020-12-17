@@ -1,7 +1,7 @@
 <%- contentFor('body') %>
 <div class="container">
-  <h2>Registrar Estudante</h2>
-  <form action="/student/show" method="POST">
+  <h2>Registrar Professor</h2>
+  <form action="/teacher/show" method="POST">
     <div class="form-group">
       <label for="form-name">Nome</label>
       <input
@@ -25,30 +25,30 @@
     </div>
 
     <div class="form-group">
-      <label for="form-education">Idade</label>
+      <label for="form-education">Escolaridade</label>
       <input
-        type="number"
+        type="text"
         class="form-control"
         required="required"
         id="form-education"
-        name="age"
+        name="education"
       />
     </div>
 
     <div class="form-group">
-      <label for="form-salary">RG</label>
+      <label for="form-salary">Salário</label>
       <input
         type="number"
         step="0.01"
         class="form-control"
         required="required"
         id="form-salary"
-        name="rg"
+        name="salary"
       />
     </div>
 
     <a type="submit"><button class="btn btn-primary">Adicionar</button></a>
-    <a href="/student/show/"
+    <a href="/teacher/show/"
       ><button class="btn btn-secondary">Voltar</button></a
     >
   </form>

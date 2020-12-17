@@ -1,15 +1,14 @@
 <%- contentFor('body') %>
 <div class="container">
-  <h2>Editar Registro do Professor <% data.name + " " + data.surname %></h2>
-  <form action="/teacher/edit/<%= data._id %>" method="POST">
+  <h2>Registrar Estudante</h2>
+  <form action="/student/show" method="POST">
     <div class="form-group">
       <label for="form-name">Nome</label>
       <input
         type="text"
         class="form-control"
-        id="form-name"
         required="required"
-        value="<%= data.name %>"
+        id="form-name"
         name="name"
       />
     </div>
@@ -19,40 +18,37 @@
       <input
         type="text"
         class="form-control"
-        id="form-surname"
         required="required"
-        value="<%= data.surname %>"
+        id="form-surname"
         name="surname"
       />
     </div>
 
     <div class="form-group">
-      <label for="form-education">Escolaridade</label>
+      <label for="form-education">Idade</label>
       <input
-        type="text"
+        type="number"
         class="form-control"
-        id="form-education"
         required="required"
-        value="<%= data.education %>"
-        name="education"
+        id="form-education"
+        name="age"
       />
     </div>
 
     <div class="form-group">
-      <label for="form-salary">Salário</label>
+      <label for="form-salary">RG</label>
       <input
         type="number"
         step="0.01"
         class="form-control"
         required="required"
         id="form-salary"
-        value="<%= data.salary %>"
-        name="salary"
+        name="rg"
       />
     </div>
 
-    <a type="submit"><button class="btn btn-primary">Salvar</button></a>
-    <a href="/teacher/show/"
+    <a type="submit"><button class="btn btn-primary">Adicionar</button></a>
+    <a href="/student/show/"
       ><button class="btn btn-secondary">Voltar</button></a
     >
   </form>

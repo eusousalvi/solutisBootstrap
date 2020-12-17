@@ -1,0 +1,61 @@
+<%- contentFor('body') %>
+<div class="container">
+  <h2>Editar Registro de Instituição</h2>
+
+  <form action="/institution/edit/<%= data._id %>" method="POST">
+    <form action="/institution/show" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          value="<%= data.name %>"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="cnpj" class="form-label">CNPJ</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cnpj"
+          name="cnpj"
+          value="<%= data.cnpj %>"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="telephone" class="form-label">Telefone</label>
+        <input
+          type="text"
+          class="form-control"
+          id="telephone"
+          name="telephone"
+          value="<%= data.telephone %>"
+        />
+      </div>
+      <div class="mb-3 form-check">
+        <% if(data.situation == 'Ativo') { %>
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="situationINput"
+          name="situationInput"
+          checked
+        />
+        <% } else { %>
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="situationINput"
+          name="situationInput"
+        />
+        <% } %>
+        <label class="form-check-label" for="situationInput">Situação</label>
+      </div>
+
+      <a href="/institution/show" class="btn btn-primary">Voltar</a>
+      <button type="submit" class="btn btn-success">Salvar</button>
+    </form>
+  </form>
+</div>

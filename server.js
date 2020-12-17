@@ -7,7 +7,6 @@ const teacherRoutes = require('./src/routes/teacher');
 const examRoutes = require('./src/routes/exam');
 const institutionRoutes = require('./src/routes/institution');
 const employeeRoutes = require('./src/routes/employee');
-const teacherRoutes = require('./src/routes/teacher');
 const projectsRoutes = require('./src/routes/projects');
 const studentRoutes = require('./src/routes/student');
 

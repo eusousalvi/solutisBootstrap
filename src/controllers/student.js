@@ -54,8 +54,6 @@ module.exports = {
         $set: {
           name,
           surname,
-          education,
-          salary,
           age,
           rg,
         },

@@ -1,0 +1,33 @@
+<%- contentFor('body') %>
+<div class="container">
+  <h2>Lista de Professores</h2>
+  <table class="table table-hover table-sm" border="1">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nome</td>
+        <th scope="col">Sobrenome</td>
+        <th scope="col">Ação</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(function(details) { %>
+        <tr>
+          <td scope="row">
+            <%= details.name %>
+          </td>
+          <td>
+            <%= details.surname %>
+          </td>
+          <td>
+            <a href="/teacher/show/<%= details._id %>">Detalhes</a>
+            -
+            <a href="/teacher/edit/<%= details._id %>">Editar</a>
+            -
+            <a href="/teacher/delete/<%= details._id %>">Deletar</a>
+          </td>
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
+  <a href="/teacher/add"><button class="btn btn-primary">Novo</button></a>
+</div>

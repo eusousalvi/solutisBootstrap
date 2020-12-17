@@ -14,7 +14,7 @@
             <td>
               <%= details.title %>
             </td>
-            <td><a href="/exam/show/<%= details._id %>">Detalhes</a> - <a href="/exam/edit/<%= details._id %>">Editar</a> - <a href="/exam/delete/<%= details._id %>">Deletar</a></td>
+            <td><a class="btn btn-info" href="/exam/show/<%= details._id %>">Detalhes</a> - <a class="btn btn-warning" href="/exam/edit/<%= details._id %>">Editar</a> - <a class="btn btn-danger" href="/exam/delete/<%= details._id %>">Deletar</a></td>
           </tr>
           <% }) %>
       </tbody>

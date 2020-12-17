@@ -1,21 +1,23 @@
 <%- contentFor('body') %>
-  <h2>Registro de Provas</h2>
-  <table border="1">
-    <thead>
-      <tr>
-        <td>Título</td>
-        <td>Ação</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% data.forEach(function(details) { %>
+  <section class="container">
+    <h2>Registro de Provas</h2>
+    <table class="table table-hover table-sm" border="1">
+      <thead class="thead-dark">
         <tr>
-          <td>
-            <%= details.title %>
-          </td>
-          <td><a href="/exam/show/<%= details._id %>">Detalhes</a> - <a href="/exam/edit/<%= details._id %>">Editar</a> - <a href="/exam/delete/<%= details._id %>">Deletar</a></td>
+          <th scope="col">Título</td>
+          <th scope="col">Ação</td>
         </tr>
-        <% }) %>
-    </tbody>
-  </table>
-  <button><a href="/exam/add">Novo</a></button>
+      </thead>
+      <tbody>
+        <% data.forEach(function(details) { %>
+          <tr scope="row">
+            <td>
+              <%= details.title %>
+            </td>
+            <td><a href="/exam/show/<%= details._id %>">Detalhes</a> - <a href="/exam/edit/<%= details._id %>">Editar</a> - <a href="/exam/delete/<%= details._id %>">Deletar</a></td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+    <a href="/exam/add"><button class="btn btn-primary">Novo</button></a>
+  </section>

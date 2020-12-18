@@ -25,6 +25,8 @@ app.use(teacherRoutes);
 app.use(examRoutes);
 app.use(projectsRoutes);
 app.use(studentRoutes);
+app.use("/static", express.static(__dirname + "/src"));
+app.use("/dist", express.static(__dirname + "/node_modules/inputmask/dist"));
 
 MongoClient.connect(
   process.env.DB_CONNECTION,

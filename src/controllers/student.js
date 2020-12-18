@@ -1,15 +1,16 @@
 const ObjectId = require("mongodb").ObjectID;
+const Inputmask = typeof window != "undefined" ? require("inputmask") : {};
 
 module.exports = {
   index(request, response) {
-    response.render("./student/index.ejs");
+    response.render("./student/index.ejs", { Inputmask });
     global.db.collection(process.env.DB_STUDENT_SCHEMA).find();
   },
 
   create(request, response) {
     global.db
       .collection(process.env.DB_STUDENT_SCHEMA)
-      .save(request.body, (err, result) => {
+      .insertOne(request.body, (err, result) => {
         if (err) return console.log(err);
 
         console.log("Salvo no Banco de Dados");

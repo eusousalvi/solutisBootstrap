@@ -29,7 +29,7 @@
           <td>
             <a class="btn btn-warning" href="/student/edit/<%= details._id %>">Editar</a>
             -
-            <a class="btn btn-danger" href="/student/delete/<%= details._id %>">Deletar</a>
+            <a onClick="window.confirm('Você realmente quer deletar esse post?')"  class="btn btn-danger" href="/student/delete/<%= details._id %>">Deletar</a>
           </td>
         </tr>
         <% }) %>

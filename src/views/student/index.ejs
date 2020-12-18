@@ -1,4 +1,5 @@
 <%- contentFor('body') %>
+
 <div class="container">
   <h2>Registrar Estudante</h2>
   <form action="/student/show" method="POST">
@@ -30,26 +31,29 @@
         type="number"
         class="form-control"
         required="required"
-        id="form-education"
+        id="form-age"
         name="age"
       />
     </div>
 
     <div class="form-group">
-      <label for="form-salary">RG</label>
+      <label for="form-rg">RG</label>
       <input
-        type="number"
+       
+        type="text"
         step="0.01"
         class="form-control"
         required="required"
-        id="form-salary"
+        id="form-rg"
         name="rg"
       />
     </div>
 
-    <a type="submit"><button class="btn btn-primary">Adicionar</button></a>
-    <a href="/student/show/"
-      ><button class="btn btn-secondary">Voltar</button></a
-    >
+    <button type="submit" class="btn btn-primary">Adicionar</button></a>
+    <a class="btn btn-secondary" href="/student/show/">Voltar</a>
+    
   </form>
 </div>
+
+
+

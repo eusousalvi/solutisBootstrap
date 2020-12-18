@@ -3,7 +3,7 @@ const ObjectId = require("mongodb").ObjectID;
 module.exports = {
   index(request, response) {
     response.render("./projects/index.ejs");
-    global.db.collection(process.env.DB_PROJECTS_CHEMAA).find();
+    global.db.collection(process.env.DB_PROJECTS_SCHEMA).find();
   },
 
   create(request, response) {
@@ -16,7 +16,7 @@ module.exports = {
     };
 
     global.db
-      .collection(process.env.DB_PROJECTS_CHEMA)
+      .collection(process.env.DB_PROJECTS_SCHEMA)
       .save(data, (err, result) => {
         if (err) return console.log(err);
 
@@ -27,7 +27,7 @@ module.exports = {
 
   show(request, response) {
     global.db
-      .collection(process.env.DB_PROJECTS_CHEMA)
+      .collection(process.env.DB_PROJECTS_SCHEMA)
       .find()
       .toArray((err, results) => {
         if (err) return console.log(err);
@@ -39,7 +39,7 @@ module.exports = {
     let id = request.params.id;
 
     global.db
-      .collection(process.env.DB_PROJECTS_CHEMA)
+      .collection(process.env.DB_PROJECTS_SCHEMA)
       .findOne(ObjectId(id))
       .then((results) => {
         response.render("./projects/showById.ejs", { data: results });
@@ -53,7 +53,7 @@ module.exports = {
     let id = request.params.id;
 
     global.db
-      .collection(process.env.DB_PROJECTS_CHEMA)
+      .collection(process.env.DB_PROJECTS_SCHEMA)
       .findOne(ObjectId(id))
       .then((results) => {
         console.log(results);
@@ -73,7 +73,7 @@ module.exports = {
     let dataFormatada =
       date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
-    global.db.collection(process.env.DB_PROJECTS_CHEMA).updateOne(
+    global.db.collection(process.env.DB_PROJECTS_SCHEMA).updateOne(
       { _id: ObjectId(id) },
       {
         $set: {
@@ -95,7 +95,7 @@ module.exports = {
     let id = request.params.id;
 
     global.db
-      .collection(process.env.DB_PROJECTS_CHEMA)
+      .collection(process.env.DB_PROJECTS_SCHEMA)
       .deleteOne({ _id: ObjectId(id) }, (err, result) => {
         if (err) return res.send(500, err);
         console.log("Deletado do Banco de Dados!");

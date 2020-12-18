@@ -8,6 +8,7 @@ const institutionRoutes = require("./src/routes/institution");
 const employeeRoutes = require("./src/routes/employee");
 const projectsRoutes = require("./src/routes/projects");
 const studentRoutes = require("./src/routes/student");
+const subjectsRoutes = require("./src/routes/subjects");
 
 const port = 4000;
 
@@ -27,6 +28,7 @@ app.use(projectsRoutes);
 app.use(studentRoutes);
 app.use("/static", express.static(__dirname + "/src"));
 app.use("/dist", express.static(__dirname + "/node_modules/inputmask/dist"));
+app.use(subjectsRoutes);
 
 MongoClient.connect(
   process.env.DB_CONNECTION,

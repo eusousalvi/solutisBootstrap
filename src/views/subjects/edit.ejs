@@ -1,0 +1,58 @@
+<%- contentFor('body') %>
+<div class="container">
+  <h2>Editar Registro da Disciplina - <% data.title %></h2>
+  <form action="/subject/edit/<%= data._id %>" method="POST">
+    <div class="form-group">
+      <label for="form-title">Título</label>
+      <input
+        type="text"
+        class="form-control"
+        id="form-title"
+        required="required"
+        value="<%= data.title %>"
+        name="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="form-hours">Carga horária semanal</label>
+      <input
+        type="text"
+        class="form-control"
+        id="form-hours"
+        required="required"
+        value="<%= data.hours %>"
+        name="hours"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="form-name">Nome do professor</label>
+      <input
+        type="text"
+        class="form-control"
+        id="form-name"
+        required="required"
+        value="<%= data.name %>"
+        name="name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="form-description">Descrição</label>
+      <input
+        type="text"
+        class="form-control"
+        required="required"
+        id="form-description"
+        value="<%= data.description %>"
+        name="description"
+      />
+    </div>
+
+    <a type="submit"><button class="btn btn-primary">Salvar</button></a>
+    <a href="/subjects/show/"
+      ><button class="btn btn-secondary">Voltar</button></a
+    >
+  </form>
+</div>

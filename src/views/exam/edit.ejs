@@ -14,7 +14,7 @@
               <%= index + 1 %>
             </label>
             <input id="<%= index %>" type="text" value="<%= question %>" name="questions" class="form-control col-sm-10">
-            <button type="button" onclick="removeQuestion('<%= index %>')" class="col-sm-1 btn btn-danger">Apagar</button>
+            <button type="button" onclick="removeEditQuestion('<%= index %>')" class="col-sm-1 btn btn-danger">Apagar</button>
           </div>
           <% }) %>
       </div>

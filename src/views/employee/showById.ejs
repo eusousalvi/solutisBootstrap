@@ -32,6 +32,6 @@
     </tbody>
   </table>
     <a class="btn btn-warning" href="/employee/edit/<%= data._id %> ">Editar</a> 
-    <a class="btn btn-danger" href="/employee/delete/<%= data._id %> ">Deletar</a>
+    <a onclick="return confirm('Você realmente quer deletar esse registro?');" class="btn btn-danger" href="/employee/delete/<%= data._id %> ">Deletar</a>
     <a href="/employee/show" class="btn btn-secondary">Voltar</a>
 </div>
